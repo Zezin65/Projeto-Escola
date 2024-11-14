@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-800 flex items-center justify-center flex-col">
+    
+    <h1 class="text-5xl text-green-500 my-10">Bem Vindo de Volta</h1>
+    <div id="contaninerIndex" class="bg-gray-800 my-10 w-max py-5 px-10 border border-green-500 rounded-lg">
+
+        {% if error != None %}
+
+        <div id="errorLogin" class="flex justify-center mt-5 flex-col">
+            <h2 class="text-red-500 text-5xl">{{error}}</h2>
+            <a href="/" class="text-red-300 hover:text-red-800 my-5 text-3xl">Tentar Novamente</a>
+        </div>
+        {% else %}
+
+        <form action="/logar" method="post">
+            <div id="loginIndex" class="flex flex-col mt-5">
+                <label for="login" class="text-green-300 text-2xl font-bold mb-2">Login</label>
+                <input type="text" name="login" id="login" class="border-2 border-gray-600 bg-gray-800 text-green-200 rounded-md p-2" required>
+            </div>
+            <div id="senhaLogin" class="flex flex-col mt-5">
+                <label for="senha" class="text-green-300 text-2xl font-bold mb-2">Senha</label>
+                <input type="password" name="senha" id="senha" class="border-2 border-gray-600 bg-gray-800 text-green-200 rounded-md p-2" required>
+            </div>
+            <div id="esqueciSenhaLogin" class="mt-2">
+                <a href="/esqueciSenha" class="text-green-300 hover:text-green-500 my-5">Esqueci Minha Senha</a>
+            </div>
+            <div id="botaoLogin" class="flex justify-center mt-5">
+                <button type="submit"
+                    class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-md">Entrar</button>
+            </div>
+        </form>
+        {% endif %}
+
+    </div>
+</body>
+
+</html>

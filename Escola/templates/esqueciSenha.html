@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-800 flex items-center justify-center flex-col min-h-screen">
+    <h1 class="text-5xl font-bold text-green-500 my-10">Esqueci Minha Senha</h1>
+    <div id="contaninerIndex" class="bg-gray-900 my-10 w-max py-5 px-10 border border-green-500 rounded-lg shadow-lg">
+        {% if error != None %}
+        <div id="errorLogin" class="flex justify-center mt-5 flex-col">
+            <h2 class="text-red-500 text-5xl">{{error}}</h2>
+            <a href="/esqueciSenha" class="text-red-300 hover:text-red-800 my-5 text-3xl">Tentar Novamente</a>
+        </div>
+        {% else %}
+        <form action="/recuperarSenha" method="post">
+            <div id="loginIndex" class="flex flex-col mt-5">
+                <label for="login" class="text-2xl font-bold text-green-300 mb-2">Login</label>
+                <input type="text" name="login" id="login" class="border border-green-500 rounded-md p-2 bg-gray-800 text-white" required>
+            </div>
+            <div id="senhaLogin" class="flex flex-col mt-5">
+                <label for="senha" class="text-2xl font-bold text-green-300 mb-2">Nova Senha</label>
+                <input type="password" name="senha" id="senha" class="border border-green-500 rounded-md p-2 bg-gray-800 text-white" required>
+            </div>
+            <div id="senhaLogin" class="flex flex-col mt-5">
+                <label for="cSenha" class="text-2xl font-bold text-green-300 mb-2">Confirme a Nova Senha</label>
+                <input type="password" name="cSenha" id="cSenha" class="border border-green-500 rounded-md p-2 bg-gray-800 text-white" required>
+            </div>
+            <div id="botoes" class="flex justify-center mt-5">
+                <button type="submit"
+                    class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-md">Alterar Senha</button>
+                <a href="/"
+                    class="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-4 rounded-md ml-5">Voltar</a>
+            </div>
+        </form>
+        {% endif %}
+    </div>
+</body>
+
+</html>
